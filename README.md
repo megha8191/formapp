@@ -2,69 +2,60 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Notes
 
-In the project directory, you can run:
+## Form Handling
+-<textarea close iteself> , <legend> for main label, <fieldset> for all check and radio outer div
+-object state for form
+-htmlfor for checkbox label
+-controlled components
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## React Router
+<Routes>
+        <Route path="/" element={<div>Home</div>}></Route>
+        <Route path="/contact" element={<Contact/>}></Route>
+ </Routes> 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ root.render(
+       <BrowserRouter>
+       <App/> 
+    </BrowserRouter>   
+ );
+ -navlink for active link ,willa add active class for active
+ <NavLink to="/">Home</NavLink>
 
-### `npm test`
+-Child element and outlet and default index
+  <Routes>
+        <Route path="/" element={<div> <Header/><Outlet/> </div>}>
+          <Route index element={<div>default element for "/" route and "/" outlet.</div>}></Route>
+          <Route path="/contact" element={<Contact/>}></Route>
+          <Route path='/about' element={<Aboutus/>}></Route>
+        </Route>
+        <Route path='/form' element={<Formcmpt/>}></Route>
+        <Route path='*' element={<div>Error not found</div>}></Route>
+     </Routes>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Navigate to other page with data 
+-useNavigate()
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
+navigate("/about)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+we can even pass data with navigate : 
+navigate('/result', { state: { formdata: formdata, additionalData: additionalData } });
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+and catch it with:
+const location = useLocation();
+const formdata = location?.state?.formdata;
 
-### `npm run eject`
+useLocation() :This hook returns the current location object. 
+gives location.key | location.pathname | location.search |  location.state
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Navigate to other page with data (Without useLocation)
+ we can do it without uselocation by defining formdata in app.js and pass formdata and setFormdata to Formcmpt and result like this :
+<Route path='/form' element={<Formcmpt formdata={formdata} setFormdata={setFormdata} />} />
