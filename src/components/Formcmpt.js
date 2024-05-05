@@ -49,6 +49,9 @@ const Formcmpt =()=>{
               <option name="fortuner">fortuner</option>
              </select>
              <br/><button type='submit'>Submit</button>
+             <button onClick={()=>{
+              navigate(-5);
+             }}>Go back</button>
             </div>
            </form>
         </div>

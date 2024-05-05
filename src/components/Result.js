@@ -1,9 +1,10 @@
 // Result.js
 
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Result = () => {
+  const navigate=useNavigate();
   const location = useLocation();
   const formdata = location?.state?.formdata;
 
@@ -20,6 +21,10 @@ const Result = () => {
       <p>Name: {formdata.fname}</p>
       <p>Age: {formdata.age}</p>
       <p>Comment: {formdata.comment}</p>
+      <button onClick={()=>{
+              navigate(-1);
+             }}>Go back</button>
+      
     </div>
   );
 }
