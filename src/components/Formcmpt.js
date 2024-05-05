@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Result from './Result';
 
 const Formcmpt =()=>{
+    const navigate=useNavigate();
     const [formdata,setFormdata] =useState({
         fname:"",
         age:"",
@@ -13,18 +16,18 @@ const Formcmpt =()=>{
     
       const handleChange=(e)=>{
         const {name , value,type,checked} =e.target
-        setFormdata((prev)=>({
-          ...prev,
-          [name]: (type==="checkbox")? checked : value
-        }))
-           /*  setFormdata({
-                    ...formdata,
-                })      */
+          setFormdata((prev)=>({
+            ...prev,
+            [name]: (type==="checkbox")? checked : value
+          }))
+          // setFormdata({
+          //       ...formdata,
+          //  })     
       }
       const handleform=(event)=>{
         event.preventDefault();
-        console.log('printing values........')
         console.log(formdata)
+        navigate('/result', { state: { formdata: formdata } });
       }
      
       return (
