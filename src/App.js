@@ -13,10 +13,14 @@ function App() {
 
   const handleChange=(e)=>{
     const {name , value,type,checked} =e.target
-    setFormdata({
-      ...formdata,
+    setFormdata((prev)=>({
+      ...prev,
       [name]: (type=="checkbox")? checked : value
-    }) 
+    }))
+      //   setFormdata({
+      //     ...formdata,
+      //     [name]: (type=="checkbox")? checked : value
+      //   }) 
   }
   const handleform=(event)=>{
     event.preventDefault();
@@ -42,10 +46,9 @@ function App() {
           <option name="thar">thar</option>
           <option name="fortuner">fortuner</option>
          </select>
-         <br/><button type='submit' >Submit</button>
+         <br/><button type='submit'>Submit</button>
         </div>
        </form>
-     
     </div>
   );
 }
