@@ -42,7 +42,7 @@ const Formcmpt =()=>{
               <input className='my-2 border-1 p-2 border-gray-300 ' type='radio' name='mode' value="offline" onChange={handleChange} checked={(formdata.mode==="offline")}/>offline
               <input className='my-2 border-1 p-2 border-gray-300 ml-4' type='radio' name='mode' value="online" onChange={handleChange} checked={(formdata.mode==="online")}/>online
              </fieldset>
-             <select value={formdata.car} name='car' className='mb-2'className='my-2 border-1 p-2 border-gray-300 w-full text-black'  onChange={handleChange}>
+             <select value={formdata.car} name='car' className='my-2 border-1 p-2 border-gray-300 w-full text-black'  onChange={handleChange}>
               <option name="scorpio">scorpio</option>
               <option name="thar">thar</option>
               <option name="fortuner">fortuner</option>

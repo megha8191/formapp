@@ -10,6 +10,8 @@ import Header from './components/Header';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import { useState } from 'react';
+import PrivateRoute from './components/PrivateRoute';
+
 
 
 function App() {
@@ -24,7 +26,10 @@ function App() {
           <Route path='/about' element={<Aboutus/>}/>
           <Route path='/login'  element={<Login setIslogin={setIslogin} islogin={islogin}/>}/>
           <Route path='/signup'  element={<Signup setIslogin={setIslogin}/>}/>
-          {islogin && <Route path='/dashboard' element={<Dashboard/>}/>}
+          <Route path='/dashboard' element={ 
+            <PrivateRoute islogin={islogin}>
+                <Dashboard/>
+            </PrivateRoute>}/>
         </Route>
         <Route path='/form' element={<Formcmpt/>}/>
         <Route path='/result' element={<Result />}/>

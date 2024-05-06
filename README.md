@@ -74,3 +74,23 @@ import toast, { Toaster } from 'react-hot-toast';
 }}
 write in position you want , you ca nmodify style.
 <Toaster />
+
+## Protected route 
+## PrivateRoute
+
+<Route path='/dashboard' element={ 
+   <PrivateRoute islogin={islogin}>
+         <Dashboard/>
+   </PrivateRoute>}/>
+</Route>
+
+
+const PrivateRoute = ({islogin, children}) => {
+    if(islogin){
+        return children;
+    }
+    else{
+       return  <Navigate to="/login"></Navigate>
+    }
+}
+
