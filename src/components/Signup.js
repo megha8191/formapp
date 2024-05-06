@@ -32,7 +32,8 @@ const Signup = ({setIslogin}) => {
         if((signdata.password)===(signdata.confirmPassword)){
             setIslogin(true);
             navigate('/dashboard');
-            toast.success('Account created')
+            toast.success('Account created');
+
             console.log('ACCOUNT DETAILS')
             console.log(signdata)
         }

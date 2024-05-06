@@ -31,23 +31,23 @@ const Formcmpt =()=>{
       }
      
       return (
-        <div className="">
+        <div className="w-[450px] mx-auto py-8 text-white" >
            <form onSubmit={handleform}>
             <div className='px-4'>
-             <br/><input className='my-2 border-1 p-2 border-gray-300' type='text' placeholder='name' name='fname' onChange={handleChange}/>
-             <br/><input className='my-2 border-1 p-2 border-gray-300' type='number' placeholder='Age' name='age' onChange={handleChange}/>
-             <br/><textarea name='comment' onChange={handleChange}/>
-             <br/><input className='my-2 border-1 p-2 border-gray-300' type='checkbox' checked={formdata.check} name='check' onChange={handleChange}/>
+             <br/><input className='my-2 border-1 p-2 border-gray-300 w-full text-black' type='text' placeholder='name' name='fname' onChange={handleChange}/>
+             <br/><input className='my-2 border-1 p-2 border-gray-300 w-full text-black' type='number' placeholder='Age' name='age' onChange={handleChange}/>
+             <br/><textarea name='comment'className='my-2 border-1 p-2 border-gray-300 w-full text-black' onChange={handleChange} placeholder='comment'/>
+             <br/><input className='my-2 border-1 p-2 border-gray-300  text-black' type='checkbox' checked={formdata.check} name='check' onChange={handleChange}/>check
              <fieldset>
-              <input className='my-2 border-1 p-2 border-gray-300' type='radio' name='mode' value="offline" onChange={handleChange} checked={(formdata.mode==="offline")}/>
-              <input className='my-2 border-1 p-2 border-gray-300' type='radio' name='mode' value="online" onChange={handleChange} checked={(formdata.mode==="online")}/>
+              <input className='my-2 border-1 p-2 border-gray-300 ' type='radio' name='mode' value="offline" onChange={handleChange} checked={(formdata.mode==="offline")}/>offline
+              <input className='my-2 border-1 p-2 border-gray-300 ml-4' type='radio' name='mode' value="online" onChange={handleChange} checked={(formdata.mode==="online")}/>online
              </fieldset>
-             <select value={formdata.car} name='car' className='mb-2' onChange={handleChange}>
+             <select value={formdata.car} name='car' className='mb-2'className='my-2 border-1 p-2 border-gray-300 w-full text-black'  onChange={handleChange}>
               <option name="scorpio">scorpio</option>
               <option name="thar">thar</option>
               <option name="fortuner">fortuner</option>
              </select>
-             <br/><br/><button  className='bg-white text-black py-2 px-4 rounded mr-5 '  type='submit'>Submit</button>
+             <br/><br/><button  className='bg-green-700 text-black py-2 px-4 rounded mr-5 '  type='submit'>Submit</button>
              <button className='bg-white text-black py-2 px-4 rounded ' onClick={()=>{
               navigate(-1);
              }}>Go back</button>
