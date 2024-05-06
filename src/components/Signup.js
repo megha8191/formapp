@@ -25,7 +25,6 @@ const Signup = ({setIslogin}) => {
                [name]: value
             }
         ))
-        console.log(signdata)
     }
     const signupSumit=(e)=>{
         e.preventDefault();
