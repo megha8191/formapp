@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Result from './Result';
+
 
 const Formcmpt =()=>{
     const navigate=useNavigate();
@@ -33,24 +33,23 @@ const Formcmpt =()=>{
       return (
         <div className="">
            <form onSubmit={handleform}>
-            <div>
-             <br/><input type='text' placeholder='name' name='fname' onChange={handleChange}/>
-             <br/><input type='number' placeholder='Age' name='age' onChange={handleChange}/>
+            <div className='px-4'>
+             <br/><input className='my-2 border-1 p-2 border-gray-300' type='text' placeholder='name' name='fname' onChange={handleChange}/>
+             <br/><input className='my-2 border-1 p-2 border-gray-300' type='number' placeholder='Age' name='age' onChange={handleChange}/>
              <br/><textarea name='comment' onChange={handleChange}/>
-             <br/><input type='checkbox' checked={formdata.check} name='check' onChange={handleChange}/>
+             <br/><input className='my-2 border-1 p-2 border-gray-300' type='checkbox' checked={formdata.check} name='check' onChange={handleChange}/>
              <fieldset>
-              <input type='radio' name='mode' value="offline" onChange={handleChange} checked={(formdata.mode==="offline")}/>
-              <input type='radio' name='mode' value="online" onChange={handleChange} checked={(formdata.mode==="online")}/>
+              <input className='my-2 border-1 p-2 border-gray-300' type='radio' name='mode' value="offline" onChange={handleChange} checked={(formdata.mode==="offline")}/>
+              <input className='my-2 border-1 p-2 border-gray-300' type='radio' name='mode' value="online" onChange={handleChange} checked={(formdata.mode==="online")}/>
              </fieldset>
-             <br/>
-             <select value={formdata.car} name='car' onChange={handleChange}>
+             <select value={formdata.car} name='car' className='mb-2' onChange={handleChange}>
               <option name="scorpio">scorpio</option>
               <option name="thar">thar</option>
               <option name="fortuner">fortuner</option>
              </select>
-             <br/><button type='submit'>Submit</button>
-             <button onClick={()=>{
-              navigate(-5);
+             <br/><br/><button  className='bg-white text-black py-2 px-4 rounded mr-5 '  type='submit'>Submit</button>
+             <button className='bg-white text-black py-2 px-4 rounded ' onClick={()=>{
+              navigate(-1);
              }}>Go back</button>
             </div>
            </form>

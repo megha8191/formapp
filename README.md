@@ -64,4 +64,14 @@ gives location.key | location.pathname | location.search |  location.state
 <Route path='/form' element={<Formcmpt formdata={formdata} setFormdata={setFormdata} />} />
 
 
-##
+## react-hot-toast.
+<A href="https://react-hot-toast.com/docs">https://react-hot-toast.com/docs</a>
+
+import toast, { Toaster } from 'react-hot-toast';
+
+ onClick={()=>{
+    toast('Logged in succesfully');  
+    toast.success('Logged in succesfully');  
+}}
+write in position you want , you ca nmodify style.
+<Toaster />
